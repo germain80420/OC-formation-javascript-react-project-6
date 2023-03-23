@@ -1,14 +1,14 @@
 function photographerFactory(data) {
-    //on récupére les différentes variables de l'objet json
-    const { name,id,city,country,tagline,price, portrait } = data;
+    //on créé un objet Photographer en envoyant les données de l'objet json en parametre
+    const photographer = new Photographer(data);
 
-    const picture = `assets/photographers/${portrait}`;
+    const picture = `assets/photographers/${photographer._portrait}`;
 
     function getUserCardDOM() {
 
         //on crée et on ajoute les différents éléments du dom pour l'affichage des informations 
         const linkPhotographer = document.createElement('a');
-        linkPhotographer.href=`photographer/${id}`;
+        linkPhotographer.href=`/photographer.html?id=${photographer._id}`;
 
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
@@ -23,10 +23,10 @@ function photographerFactory(data) {
         pTagline.setAttribute('class','tagline');
         const pPrice = document.createElement("p");
         pPrice.setAttribute("class","price");
-        location.innerText = city+", "+country;
-        pTagline.innerText = tagline;
-        pPrice.innerText = price+"€/jour";
-        h2.textContent = name;
+        location.innerText = photographer._city+", "+photographer._country;
+        pTagline.innerText = photographer._tagline;
+        pPrice.innerText = photographer._price+"€/jour";
+        h2.textContent = photographer._name;
         linkPhotographer.appendChild(article);
         article.appendChild(img);
         article.appendChild(divInfosPhotographer);
@@ -37,5 +37,5 @@ function photographerFactory(data) {
 
         return (linkPhotographer);
     }
-    return { name, picture, getUserCardDOM }
+    return { getUserCardDOM }
 }
