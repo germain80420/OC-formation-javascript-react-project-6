@@ -40,3 +40,10 @@ function photographerFactory(data) {
     }
     return { getUserCardDOM }
 }
+function getPhotographerById(id){
+    getPhotographers().forEach(photographer => {
+        if(photographer.id==id){
+            return photographer;
+        }
+    });
+}

@@ -9,17 +9,24 @@
 
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
-
+        
         photographers.forEach((photographer) => {
             const photographerModel = photographerFactory(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
         });
-    };
+     };
 
     async function init() {
         // Récupère les datas des photographes
         const { photographers } = await getPhotographers();
+        const { media } = await getPhotographers();
+        const listeMedias = [];
+        media.forEach(element => {
+            const media1 = new Media(element);
+            listeMedias.push(media1);
+        });
+        console.log(listeMedias[1].type);
         displayData(photographers);
     };
     

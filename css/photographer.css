@@ -74,3 +74,39 @@ form input {
     border: none;
     border-radius: 5px;
 }
+.medias_section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin: auto;
+    
+}
+
+.article-media{
+    display: flex;
+    flex-direction: column;
+    width: 28%;
+    margin: 20px;
+   
+}
+.article-media img, .article-media video{
+    aspect-ratio: 1/1;
+    width: auto;
+}
+.divInfosMedia{
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    color: #DB8876;
+    font-size: 0.9em;
+   
+}
+.divInfosMedia span{
+    text-align: right;
+    position: absolute;
+    right: 0px;
+}
