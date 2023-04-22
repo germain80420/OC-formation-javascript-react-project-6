@@ -8,7 +8,7 @@ function photographerFactory(data) {
 
         //on crée et on ajoute les différents éléments du dom pour l'affichage des informations 
         const linkPhotographer = document.createElement('a');
-        linkPhotographer.href=`/photographer.html?id=${photographer.id}`;
+        linkPhotographer.href=`photographer.html?id=${photographer.id}`;
 
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
