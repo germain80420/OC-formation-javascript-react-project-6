@@ -1,6 +1,6 @@
     async function getPhotographers() {
        //on récupére les datas du fichier json 
-        let photographers =  fetch("/data/photographers.json")
+        let photographers =  fetch("./data/photographers.json")
                             .then(res => res.json())      
                             .catch(err => console.log('an error occurs', err))
         console.log(photographers);
