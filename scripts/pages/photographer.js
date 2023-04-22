@@ -81,7 +81,7 @@ function calcLikes(listMedias){
 
 async function getMedias() {
     //on récupére les datas du fichier json 
-    let medias = fetch("/data/photographers.json")
+    let medias = fetch("./data/photographers.json")
         .then(res => res.json())
         .catch(err => console.log('an error occurs', err))
     console.log(medias);
