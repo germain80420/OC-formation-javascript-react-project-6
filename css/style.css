@@ -39,6 +39,9 @@ h1 {
     flex-direction: column;
     
 }
+
+
+
 a{
     text-decoration: none;
     text-align: center;
@@ -53,7 +56,7 @@ a{
 }
 .location{
    margin: 0px;
-   color: #D3573C;
+   color: #901C1C;
 
 }
 .tagline{
@@ -65,7 +68,7 @@ a{
     font-size: 0.8em;
 }
 
-.photographer_section article h2 {
+.photographer_section article h2, .infos-photographer h1 {
     color: #D3573C;
     font-size: 36px;
     margin: 0px;

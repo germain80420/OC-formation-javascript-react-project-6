@@ -1,47 +1,83 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+
+<body id="body">
+  <header id="header">
+    <a href="/"><img src="assets/images/logo.png" class="logo" /></a>
+  </header>
+  <main id="main">
+    <div class="photograph-header">
+      <div id="infos-photographer">
+
       </div>
-      <div class="medias_section"></div>
+      <div class="contact">
+        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
 
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="https://kit.fontawesome.com/c3461940f5.js" crossorigin="anonymous"></script>
+      </div>
+      <div id="imgPhotographer"></div>
 
-    <script src="/models/Photographer.js"></script>
+    </div>
+    <div class="filter">
+      <label for="filterBy">Trier par</label>
+      <select name="filterBy" id="filterBy">
+        <option selected value="likes">Popularité</option>
+        <option value="date">Date</option>
+        <option value="title">Titre</option>
+      </select>
+    </div>
+    <div class="medias_section"></div>
+    <div id="stats-photographer"><p id="stats-likes"></p><p id="stats-price"></p></div>
 
-    <script src="/models/Media.js"></script>
-    <script src="/scripts/factories/media.js"></script>
-    <script src="/scripts/factories/photographer.js"></script>
+  </main>
+  <div id="lightbox-modal">
+    <div id="left-side"><i class="fa-solid fa-chevron-left"></i></div>
+    <div id="currentImage"></div>
+    <div id="close-lightbox"><i class="fa-solid fa-xmark"></i></div>
+    <div id="right-side"><i class="fa-solid fa-chevron-right"></i></div>
+    <input type="hidden" name="indexMedia" id="indexMedia">
 
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+  </div>
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <h2 id="contactMe">Contactez-moi</h2>
+
+        <img src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+      <form>
+        <div>
+          <label for="firstname">Prénom</label>
+          <input type="text" id="firstname" name="firstname" />
+          <label for="lastname">Nom</label>
+          <input type="text" id="lastname" name="lastname" />
+          <label for="mail">Email</label>
+          <input type="mail" id="mail" name="mail" />
+          <label for="message">Votre message</label>
+          <input type="textarea" id="message" name="message" />
+        </div>
+
+        <button class="contact_button">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  <script src="https://kit.fontawesome.com/c3461940f5.js" crossorigin="anonymous"></script>
+
+  <script src="/models/Photographer.js"></script>
+
+  <script src="/models/Media.js"></script>
+  <script src="/scripts/factories/media.js"></script>
+  <script src="/scripts/factories/photographer.js"></script>
+
+  <script src="/scripts/pages/photographer.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
+</body>
+
 </html>

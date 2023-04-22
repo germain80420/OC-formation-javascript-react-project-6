@@ -46,6 +46,10 @@ class Media{
         return this._price;
     }
 
+    set likes(likes){
+        this._likes = likes;
+    }
+
    
 
     set photographer(photographer){
