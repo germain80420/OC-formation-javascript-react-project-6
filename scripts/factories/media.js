@@ -12,11 +12,14 @@ function mediaFactory(media, medias, compteur) {
       const body = document.getElementById("body");
       articleMedia.setAttribute("class", "article-media");
       let isLiked = false;
-
+      let aImg;
       let img;
       if (media.image != undefined) {
+         aImg = document.createElement("a");
+         aImg.ariaLabel=media.title+", close up view";
          img = document.createElement("img");
          img.setAttribute("src", picture);
+         img.alt="";
          img.addEventListener("click", function () {
             lightboxModal.style.display = "flex";
             header.setAttribute("class","hidden");
@@ -27,18 +30,20 @@ function mediaFactory(media, medias, compteur) {
             setActiveMedia();
 
          });
-         articleMedia.appendChild(img);
+         aImg.appendChild(img);
+         articleMedia.appendChild(aImg);
       }
       else {
          let video = document.createElement("video");
 
-         video.setAttribute("src", `assets/media/${media.photographer.name.split(" ")[0]}/${media.video}`)
+         video.setAttribute("src", `assets/media/${media.photographer.name.split(" ")[0]}/${media.video}`);
          video.setAttribute("controls", "true");
+         video.alt="";
          video.addEventListener("click", function () {
             lightboxModal.style.display = "flex";
-            lightboxModal.style.display = "flex";
-            header.style.display = "none";
-            main.style.display = "none";
+            header.setAttribute("class","hidden");
+            main.setAttribute("class","hidden");
+            body.style.overflow = "hidden";
             document.getElementById("indexMedia").value=compteur;
 
             setActiveMedia();
@@ -57,6 +62,7 @@ function mediaFactory(media, medias, compteur) {
          if(!isLiked){
             media.likes++;
             isLiked=true;
+            document.getElementById("stats-likes").innerHTML=calcLikes(medias)+" <i class='fa-solid fa-heart'></i>";
          }
          console.log(media.likes);
          spanLikes.innerHTML = media.likes + "  <i class='fa-solid fa-heart'></i>";

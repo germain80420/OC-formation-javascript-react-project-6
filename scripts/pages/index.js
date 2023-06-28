@@ -17,17 +17,50 @@
         });
      };
 
+    function setActivePhotographer(indexPhotographer){
+        let listPhotographer = document.getElementsByClassName("card-photographer");
+        let compteur = 0;
+        for(let photographer of listPhotographer){
+            if(compteur === indexPhotographer)
+                photographer.style.border = "2px solid black";
+            else
+                photographer.style.border ="none";
+
+            compteur++;
+        }
+    }
+
     async function init() {
         // Récupère les datas des photographes
         const { photographers } = await getPhotographers();
-        const { media } = await getPhotographers();
-        const listeMedias = [];
-        media.forEach(element => {
-            const media1 = new Media(element);
-            listeMedias.push(media1);
-        });
-        console.log(listeMedias[1].type);
+       // const { media } = await getPhotographers();
+       // const listeMedias = [];
+        // media.forEach(element => {
+        //     const media1 = new Media(element);
+        //     listeMedias.push(media1);
+        // });
+        // console.log(listeMedias[1].type);
         displayData(photographers);
+        let indexPhotographer = -1;
+        document.addEventListener("keyup",function(e){
+            switch(e.key){
+                case "ArrowRight":
+                    indexPhotographer++;
+                    if(indexPhotographer>photographers.length-1)
+                        indexPhotographer=-1;
+                    
+                break;
+                case "ArrowLeft":
+                    if(indexPhotographer>=0)
+                    indexPhotographer--;
+                break;
+                case " ":
+                    if(indexPhotographer!=-1)
+                        window.location = "photographer.html?id="+photographers[indexPhotographer].id;
+                break;
+            }
+            setActivePhotographer(indexPhotographer);
+        });
     };
     
     init();

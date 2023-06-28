@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -11,15 +11,15 @@
 
 <body id="body">
   <header id="header">
-    <a href="/"><img src="assets/images/logo.png" class="logo" /></a>
+    <a href="/"><img src="assets/images/logo.png" class="logo" alt="Fisheye home page" /></a>
   </header>
-  <main id="main">
+  <main id="main" aria-hidden="false">
     <div class="photograph-header">
       <div id="infos-photographer">
 
       </div>
       <div class="contact">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()" aria-label="Contact Me" >Contactez-moi</button>
 
       </div>
       <div id="imgPhotographer"></div>
@@ -37,7 +37,7 @@
     <div id="stats-photographer"><p id="stats-likes"></p><p id="stats-price"></p></div>
 
   </main>
-  <div id="lightbox-modal">
+  <div id="lightbox-modal" aria-hidden="true" role="dialog">
     <div id="left-side"><i class="fa-solid fa-chevron-left"></i></div>
     <div id="currentImage"></div>
     <div id="close-lightbox"><i class="fa-solid fa-xmark"></i></div>

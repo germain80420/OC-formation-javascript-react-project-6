@@ -11,8 +11,10 @@ function photographerFactory(data) {
         linkPhotographer.href=`photographer.html?id=${photographer.id}`;
 
         const article = document.createElement( 'article' );
+        article.setAttribute("class","card-photographer");
         const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
+        img.setAttribute("src", picture);
+        img.alt = "";
 
         const divInfosPhotographer = document.createElement("div");
         divInfosPhotographer.setAttribute("class","infos-photographer");
@@ -28,7 +30,8 @@ function photographerFactory(data) {
         pPrice.innerText = photographer.price+"€/jour";
         h2.textContent = photographer.name;
         linkPhotographer.appendChild(img);
-        linkPhotographer.appendChild(h2)
+        linkPhotographer.appendChild(h2);
+        linkPhotographer.ariaLabel = photographer.name;
 
         article.appendChild(linkPhotographer);
         article.appendChild(divInfosPhotographer);

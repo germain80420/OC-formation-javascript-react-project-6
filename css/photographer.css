@@ -222,11 +222,14 @@ form input {
     margin: 20px;
 
 }
+.article-media a:hover{
+    cursor: pointer;
+}
 
-.article-media img,
-.article-media video {
+.article-media a img,
+.article-media a video {
     aspect-ratio: 1/1;
-    width: auto;
+    width: 100%;
     background-color: black;
 }
 
