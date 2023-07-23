@@ -19,7 +19,7 @@
 
       </div>
       <div class="contact">
-        <button class="contact_button" onclick="displayModal()" aria-label="Contact Me" >Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()" aria-label="Contact Me">Contactez-moi</button>
 
       </div>
       <div id="imgPhotographer"></div>
@@ -34,14 +34,19 @@
       </select>
     </div>
     <div class="medias_section"></div>
-    <div id="stats-photographer"><p id="stats-likes"></p><p id="stats-price"></p></div>
+    <div id="stats-photographer">
+      <p id="stats-likes"></p>
+      <p id="stats-price"></p>
+    </div>
 
   </main>
   <div id="lightbox-modal" aria-hidden="true" role="dialog">
-    <div id="left-side"><i class="fa-solid fa-chevron-left"></i></div>
-    <div id="currentImage"></div>
-    <div id="close-lightbox"><i class="fa-solid fa-xmark"></i></div>
-    <div id="right-side"><i class="fa-solid fa-chevron-right"></i></div>
+    <div id="left-side" aria-hidden="false" aria-label="photo precedente" role="button"><i
+        class="fa-solid fa-chevron-left"></i></div>
+    <div id="currentImage" aria-hidden="true"></div>
+    <div id="close-lightbox" aria-label="fermer" role="button"><i class="fa-solid fa-xmark"></i></div>
+    <div id="right-side" aria-hidden="false" aria-label="photo suivante" role="button"><i
+        class="fa-solid fa-chevron-right"></i></div>
     <input type="hidden" name="indexMedia" id="indexMedia">
 
   </div>
@@ -52,7 +57,7 @@
 
         <img src="assets/icons/close.svg" onclick="closeModal()" />
       </header>
-      <form>
+      <form id="formContact">
         <div>
           <label for="firstname">Prénom</label>
           <input type="text" id="firstname" name="firstname" />

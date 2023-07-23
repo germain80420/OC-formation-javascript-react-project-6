@@ -1,56 +1,56 @@
 function mediaFactory(media, medias, compteur) {
-   // const media = media //new Media(data);
-   console.log(media.photographer.name);
    let picture = `assets/media/${media.photographer.name.split(" ")[0]}/${media.image}`;
    function getMediaCardDom() {
       const articleMedia = document.createElement("article");
-
       const lightboxModal = document.getElementById("lightbox-modal");
       const header = document.getElementById("header");
       const main = document.getElementById("main");
-
       const body = document.getElementById("body");
       articleMedia.setAttribute("class", "article-media");
+      articleMedia.setAttribute("id", "article-media-" + compteur);
       let isLiked = false;
       let aImg;
       let img;
+      aImg = document.createElement("a");
+      aImg.href = compteur;
+      aImg.dataset.index = compteur;
+      aImg.addEventListener("click", function (e) {
+         let index = aImg.dataset.index;
+         e.preventDefault();
+         lightboxModal.style.display = "flex";
+         header.setAttribute("class", "hidden");
+         main.setAttribute("class", "hidden");
+         header.ariaHidden = "true";
+         main.ariaHidden = "true";
+         lightboxModal.ariaHidden = "false";
+         body.style.overflow = "hidden";
+         document.getElementById("indexMedia").value = index;
+         setActiveMedia(index);
+      })
+      aImg.disabled = true;
+      aImg.ariaLabel = media.title + ", close up view";
       if (media.image != undefined) {
-         aImg = document.createElement("a");
-         aImg.ariaLabel=media.title+", close up view";
+
          img = document.createElement("img");
          img.setAttribute("src", picture);
-         img.alt="";
-         img.addEventListener("click", function () {
-            lightboxModal.style.display = "flex";
-            header.setAttribute("class","hidden");
-            main.setAttribute("class","hidden");
-            body.style.overflow = "hidden";
-            document.getElementById("indexMedia").value=compteur;
-            console.log(compteur);
-            setActiveMedia();
-
-         });
+         img.alt = "";
          aImg.appendChild(img);
          articleMedia.appendChild(aImg);
       }
       else {
          let video = document.createElement("video");
-
          video.setAttribute("src", `assets/media/${media.photographer.name.split(" ")[0]}/${media.video}`);
-         video.setAttribute("controls", "true");
-         video.alt="";
+         video.alt = "";
          video.addEventListener("click", function () {
             lightboxModal.style.display = "flex";
-            header.setAttribute("class","hidden");
-            main.setAttribute("class","hidden");
+            header.setAttribute("class", "hidden");
+            main.setAttribute("class", "hidden");
             body.style.overflow = "hidden";
-            document.getElementById("indexMedia").value=compteur;
-
+            document.getElementById("indexMedia").value = compteur;
             setActiveMedia();
-
          });
-         articleMedia.appendChild(video);
-
+         aImg.appendChild(video);
+         articleMedia.appendChild(aImg);
       }
       const divInfosMedia = document.createElement("div");
       divInfosMedia.setAttribute("class", "divInfosMedia");
@@ -59,12 +59,11 @@ function mediaFactory(media, medias, compteur) {
       const spanLikes = document.createElement("span");
       spanLikes.innerHTML = media.likes + "  <i class='fa-solid fa-heart'></i>";
       spanLikes.addEventListener("click", function () {
-         if(!isLiked){
+         if (!isLiked) {
             media.likes++;
-            isLiked=true;
-            document.getElementById("stats-likes").innerHTML=calcLikes(medias)+" <i class='fa-solid fa-heart'></i>";
+            isLiked = true;
+            document.getElementById("stats-likes").innerHTML = calcLikes(medias) + " <i class='fa-solid fa-heart'></i>";
          }
-         console.log(media.likes);
          spanLikes.innerHTML = media.likes + "  <i class='fa-solid fa-heart'></i>";
       });
       divInfosMedia.appendChild(titreMedia);
