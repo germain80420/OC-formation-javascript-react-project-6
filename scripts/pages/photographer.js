@@ -170,10 +170,7 @@ async function displayData(medias) {
             video.setAttribute("class", "media");
             video.setAttribute("id", "media" + media.id);
             video.alt=media.title;
-            divImg.addEventListener("click", function () {
-                if (video.controls === false)
-                    video.setAttribute("controls", true);
-            })
+            video.setAttribute("controls", true);
             divImg.appendChild(video);
         }
         title = document.createElement("p");
@@ -184,7 +181,7 @@ async function displayData(medias) {
     });
     mediasSection.ariaHidden = "false";
 
-};
+}
 
 async function init(filterBy) {
 
