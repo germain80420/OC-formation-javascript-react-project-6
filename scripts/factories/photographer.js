@@ -14,7 +14,7 @@ function photographerFactory(data) {
         article.setAttribute("class","card-photographer");
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
-        img.alt = "";
+        img.alt = "photo "+photographer.name;
 
         const divInfosPhotographer = document.createElement("div");
         divInfosPhotographer.setAttribute("class","infos-photographer");

@@ -33,14 +33,14 @@ function mediaFactory(media, medias, compteur) {
 
          img = document.createElement("img");
          img.setAttribute("src", picture);
-         img.alt = "";
+         img.alt = media.title;
          aImg.appendChild(img);
          articleMedia.appendChild(aImg);
       }
       else {
          let video = document.createElement("video");
          video.setAttribute("src", `assets/media/${media.photographer.name.split(" ")[0]}/${media.video}`);
-         video.alt = "";
+         video.alt = media.title;
          video.addEventListener("click", function () {
             lightboxModal.style.display = "flex";
             header.setAttribute("class", "hidden");

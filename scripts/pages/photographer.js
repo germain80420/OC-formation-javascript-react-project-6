@@ -161,6 +161,7 @@ async function displayData(medias) {
             img.setAttribute("src", picture);
             img.setAttribute("class", "media");
             img.setAttribute("id", "media" + media.id);
+            img.alt = media.title;
             divImg.appendChild(img);
         }
         else {
@@ -168,6 +169,7 @@ async function displayData(medias) {
             video.setAttribute("src", `assets/media/${media.photographer.name.split(" ")[0]}/${media.video}`);
             video.setAttribute("class", "media");
             video.setAttribute("id", "media" + media.id);
+            video.alt=media.title;
             divImg.addEventListener("click", function () {
                 if (video.controls === false)
                     video.setAttribute("controls", true);
@@ -271,6 +273,7 @@ async function init(filterBy) {
             const img = document.createElement('img');
             contactMe.innerHTML += "<br>" + photographer.name;
             img.setAttribute("src", `assets/photographers/${photographer.portrait}`);
+            img.alt = "photo de "+photographer.name;
             location.setAttribute('class', 'location');
             headingPhotographer.textContent = photographer.name;
             location.innerText = photographer.city + ", " + photographer.country;
