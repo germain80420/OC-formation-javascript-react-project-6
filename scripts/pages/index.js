@@ -10,11 +10,12 @@ async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
 
     photographers.forEach((photographer) => {
+        /*global photographerFactory */
         const photographerModel = photographerFactory(photographer);
         const userCardDOM = photographerModel.getUserCardDOM();
         photographersSection.appendChild(userCardDOM);
     });
-};
+}
 
 function setActivePhotographer(indexPhotographer) {
     let listPhotographer = document.getElementsByClassName("card-photographer");
@@ -53,7 +54,7 @@ async function init() {
         }
         setActivePhotographer(indexPhotographer);
     });
-};
+}
 
 init();
 

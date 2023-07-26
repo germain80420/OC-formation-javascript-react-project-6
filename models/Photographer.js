@@ -1,3 +1,4 @@
+/*eslint-disable no-unused-vars */
 class Photographer{
     constructor(data){
         this._name = data.name;

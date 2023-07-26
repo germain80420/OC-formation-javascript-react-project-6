@@ -1,3 +1,4 @@
+/*global Media,Photographer,mediaFactory,closeModal */
 function setActiveMedia(index = 0) {
 
     index = parseInt(document.getElementById("indexMedia").value);
@@ -192,7 +193,7 @@ async function init(filterBy) {
     const divInfosPhotographer = document.getElementById("infos-photographer");
     const divImgPhotographer = document.getElementById("imgPhotographer");
     const contactMe = document.getElementById("contactMe");
-    const divImg = document.getElementById("currentImage");
+    // const divImg = document.getElementById("currentImage");
     const previousImg = document.getElementById("left-side");
     const nextImg = document.getElementById("right-side");
     const closeLightbox = document.getElementById("close-lightbox");
@@ -200,12 +201,12 @@ async function init(filterBy) {
     const selectFilter = document.getElementById("filterBy");
     filterBy = selectFilter.value;
 
-    selectFilter.addEventListener("change", function (e) {
+    selectFilter.addEventListener("change", function () {
         filterBy = selectFilter.value;
 
         displayData(orderBy(filterBy, listeMedias));
     })
-    let indexMedia = 0;
+    // let indexMedia = 0;
 
     let photographer;
 
@@ -286,7 +287,7 @@ async function init(filterBy) {
     })
     document.getElementById("stats-likes").innerHTML = calcLikes(listeMedias) + " <i class='fa-solid fa-heart'></i>";
     displayData(listeMedias);
-};
+}
 
 
 init("likes");

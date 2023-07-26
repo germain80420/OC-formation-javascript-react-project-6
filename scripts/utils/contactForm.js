@@ -1,3 +1,6 @@
+/*global srSpeak */
+const contactBtn = document.getElementById("contact_btn");
+contactBtn.addEventListener("click",displayModal);
 function displayModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "block";

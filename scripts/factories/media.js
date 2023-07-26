@@ -1,3 +1,5 @@
+/*global setActiveMedia,calcLikes*/
+/*eslint-disable no-unused-vars */
 function mediaFactory(media, medias, compteur) {
    let picture = `assets/media/${media.photographer.name.split(" ")[0]}/${media.image}`;
    function getMediaCardDom() {

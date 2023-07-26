@@ -1,3 +1,5 @@
+/*global Photographer*/
+photographerFactory(null);
 function photographerFactory(data) {
     //on créé un objet Photographer en envoyant les données de l'objet json en parametre
     const photographer = new Photographer(data);
@@ -43,10 +45,10 @@ function photographerFactory(data) {
     }
     return { getUserCardDOM }
 }
-function getPhotographerById(id){
-    getPhotographers().forEach(photographer => {
-        if(photographer.id==id){
-            return photographer;
-        }
-    });
-}
+// function getPhotographerById(id){
+//     getPhotographers().forEach(photographer => {
+//         if(photographer.id==id){
+//             return photographer;
+//         }
+//     });
+// }
