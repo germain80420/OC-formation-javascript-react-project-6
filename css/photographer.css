@@ -15,7 +15,6 @@
     background-color: #FAFAFA;
     width: 85%;
     margin: auto;
-    /* margin: 0 100px; */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -259,11 +258,6 @@ form input {
     padding: 5px;
     color: #901C1C;
 }
-/* .divInfosMedia span {
-    text-align: right;
-    position: absolute;
-    right: 0px;
-} */
 
 .divInfosMedia span:hover {
     cursor: pointer;
