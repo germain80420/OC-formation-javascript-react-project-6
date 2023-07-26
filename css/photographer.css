@@ -247,12 +247,23 @@ form input {
     margin-top: 10px;
 
 }
-
-.divInfosMedia span {
+.aLikes{
     text-align: right;
     position: absolute;
     right: 0px;
+    width: fit-content;
+    color: #901C1C;
 }
+.aLikes:focus{
+    border: 1px solid black;
+    padding: 5px;
+    color: #901C1C;
+}
+/* .divInfosMedia span {
+    text-align: right;
+    position: absolute;
+    right: 0px;
+} */
 
 .divInfosMedia span:hover {
     cursor: pointer;

@@ -58,9 +58,18 @@ function mediaFactory(media, medias, compteur) {
       divInfosMedia.setAttribute("class", "divInfosMedia");
       const titreMedia = document.createElement("h2");
       titreMedia.innerText = media.title;
+      const aLikes = document.createElement("a");
+      aLikes.setAttribute("class","aLikes");
+      aLikes.href="";
       const spanLikes = document.createElement("span");
+      
       spanLikes.innerHTML = media.likes + "  <i class='fa-solid fa-heart'></i>";
-      spanLikes.addEventListener("click", function () {
+      aLikes.ariaHidden=false;
+      aLikes.role="button";
+      aLikes.appendChild(spanLikes);
+      aLikes.disabled=true;
+      aLikes.addEventListener("click", function (e) {
+         e.preventDefault();
          if (!isLiked) {
             media.likes++;
             isLiked = true;
@@ -69,7 +78,7 @@ function mediaFactory(media, medias, compteur) {
          spanLikes.innerHTML = media.likes + "  <i class='fa-solid fa-heart'></i>";
       });
       divInfosMedia.appendChild(titreMedia);
-      divInfosMedia.appendChild(spanLikes);
+      divInfosMedia.appendChild(aLikes);
       articleMedia.appendChild(divInfosMedia);
 
       return articleMedia;
